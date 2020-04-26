@@ -9,12 +9,12 @@ from bs4 import BeautifulSoup
 import json
 import html.parser
 
-url = 'http://finance.yahoo.com/q/hp?s=AAPL+Historical+Prices'
+url = 'http://www.nasdaq.com/market-activity/stocks/aapl/historical '
 page = urllib.request.urlopen(url)
 soup = BeautifulSoup(page.read())
 
 
-def yahoo_apple_stock():
+def apple_stock():
     data = []
     fhandler = soup.find_all('tr')
 
@@ -33,8 +33,8 @@ def yahoo_apple_stock():
             print
             'bad url'
             continue
-    return yahoo_apple_stock
+    return apple_stock
 
 
 if __name__ == "__main__":
-    yahoo_apple_stock()
+    apple_stock()
